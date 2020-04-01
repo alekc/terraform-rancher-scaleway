@@ -1,0 +1,5 @@
+runcmd:
+  - apt install --reinstall -o Dpkg::Options::="--force-confask,confnew,confmiss" sudo
+  - curl -sL https://releases.rancher.com/install-docker/${docker_version_server}.sh | sh
+  - 'while true; do curl -sLk "https://$(scw-userdata rancher_ip)/ping" && break; sleep 5; done'
+  - '$(scw-userdata rancher_node_command) $(scw-userdata rancher_node_role) $(scw-userdata rancher_node_labels) --address ipify'

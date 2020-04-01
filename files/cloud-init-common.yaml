@@ -1,0 +1,9 @@
+#cloud-config
+final_message: "System is up"
+#package_upgrade: true
+#package_update: true
+#package_reboot_if_required: true
+
+packages:
+  - sudo
+  - curl

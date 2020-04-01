@@ -1,0 +1,4 @@
+runcmd:
+  - apt install --reinstall -o Dpkg::Options::="--force-confask,confnew,confmiss" sudo
+  - curl -sL https://releases.rancher.com/install-docker/${docker_version_server}.sh | sh
+  - 'docker run -d --restart=unless-stopped -p 80:80 -p 443:443 --name=rancher rancher/rancher:${rancher_version}'
